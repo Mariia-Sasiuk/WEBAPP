@@ -1,0 +1,89 @@
+﻿*{margin:0 auto;}
+
+header{height:100px;
+	background:#CFCFCF;
+	}
+header h1{	text-align:center;
+			padding-top:40px;
+			font-style:normal;}
+body{	background:#CFCFCF;
+	font-style:italic;
+	}
+
+
+#navigation {   background:#CFCFCF;
+		height:30px;
+		width:600px;
+		position: relative; 
+		float: right; 
+		display: inline; 
+		font-style:normal;
+		}
+
+#recovernavig{	background:#CFCFCF;
+	height:30px;
+}
+
+li a{	text-decoration: none;
+	background:#CFCFCF;
+	
+	}
+li a:hover{	background:#CDB5CD;
+		}
+
+
+#center {	background:#CDB5CD;
+			min-height: 70%;
+				}
+
+h3{	border-bottom:3px solid black;
+	text-align:center;
+}
+
+p{	margin:5px;
+}
+
+footer{	height:50px;
+	background:#CFCFCF;
+	}
+footer p{	text-align:center;
+		padding-top:15px;
+		font-style:normal;
+		font-size:10pt;
+}
+
+table, td, th
+{
+	border:1px solid black; /* внешний вид рамки */
+	border-collapse: collapse; /* убирание задвоенности рамки */
+	padding: 5px; /* отступ от текста до рамки */
+}
+
+
+
+
+
+
+ul {
+ 	list-style-type: none;
+ 	padding: 0;
+ }
+ul li {	display: inline;
+ 	float: left;
+	margin: 0 3px 0 0;
+	width:80px;
+	text-align:center;
+	}
+ ul.dropdown-inside {	
+ 			position: absolute;
+ 			left: -9999px;
+ }
+ul.dropdown li.dropdown-top:hover .dropdown-inside {
+							position: relative;
+ 							left: 0;
+							width:100px;
+							background:#CFCFCF;
+							
+ }
+
+
