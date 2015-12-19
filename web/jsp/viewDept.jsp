@@ -1,9 +1,10 @@
+<%@ page import="main.java.lab3.Department" %>
 <%@ page import="main.java.lab3.DataBase" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
-  Date: 12.12.2015
-  Time: 17:51
+  Date: 19.12.2015
+  Time: 18:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +14,7 @@
 </head>
 <body>
 <header>
-  <h1>Help Page</h1>
+  <h1>DeptView Page</h1>
 </header>
 <div id="recovernavig">
   <div id="navigation">
@@ -34,8 +35,21 @@
 </div>
 
 <div id="center">
-<p>bla bla bla</p>
-  <%--<%=DataBase.getTables()%>--%>
+  <table>
+    <tr>
+      <th>Deptno</th>
+      <th>Dname</th>
+      <th>Loc</th>
+    </tr>
+    <% for (main.java.lab3.Department dept : DataBase.departaments){%>
+    <tr><td><%=dept.getDeptno()%></td>
+      <td><%=dept.getDname()%></td>
+      <td><%=dept.getLoc()%></td>
+    </tr>
+    <%
+      }
+    %>
+  </table>
 
 
 </div>

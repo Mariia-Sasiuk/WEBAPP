@@ -32,8 +32,10 @@ private static String performYourLogic(HttpServletRequest req) {
     if (!action.isEmpty()){
         switch (action){
             case "empView"           : return empURL("emp");
+            case "deptView"           : return deptURL("dept");
             case "navigation"         : return navigateURL();
             case "help"             : return indexURL();
+            case "edit"             : return editURL();
             default                 : return indexURL();
         }
     }
@@ -42,9 +44,16 @@ private static String performYourLogic(HttpServletRequest req) {
     private static String indexURL(){
         return "/jsp/Help.jsp";
     }
+    private static String editURL(){
+        return "/jsp/edit.jsp";
+    }
     private static String empURL(String tableName){
         DataBase.getTables(tableName);
-        return "/jsp/Emp.jsp";
+        return "/jsp/viewEmp.jsp";
+    }
+    private static String deptURL(String tableName){
+        DataBase.getTables(tableName);
+        return "/jsp/viewDept.jsp";
     }
     private static String navigateURL(){
         return "/jsp/Main.jsp";

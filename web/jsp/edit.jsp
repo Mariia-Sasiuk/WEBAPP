@@ -10,10 +10,12 @@
 <html>
 <head>
   <link rel="stylesheet" href="style/style.css" type="text/css" media="all" />
+  <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+  <script src="js/script.js"></script>
 </head>
 <body>
 <header>
-  <h1>Help Page</h1>
+  <h1>Edit MOD</h1>
 </header>
 <div id="recovernavig">
   <div id="navigation">
@@ -34,9 +36,18 @@
 </div>
 
 <div id="center">
-<p>bla bla bla</p>
-  <%--<%=DataBase.getTables()%>--%>
-
+  <input type="checkbox" id="addEmp" name="addEmp" value="addEmp">Add new employee<br>
+  <div id="vismore">
+    <p>Please, specify following params:</p>
+    Empno: <input name="paramsEmp" ><br>
+    Ename: <input name="paramsEmp" ><br>
+    Job: <input name="paramsEmp" ><br>
+    MGR: <input name="paramsEmp" ><br>
+    Hiredate: <input name="paramsEmp" ><br>
+    Sal: <input name="paramsEmp" ><br>
+    Comm: <input name="paramsEmp" ><br>
+    Deptno: <input name="paramsEmp" ><br>
+</div>
 
 </div>
 

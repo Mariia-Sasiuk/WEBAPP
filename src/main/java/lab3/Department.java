@@ -3,7 +3,7 @@ package main.java.lab3;
 /**
  * Created by Mari on 18.12.2015.
  */
-public class Departament {
+public class Department {
 
     int deptno;
     String dname;

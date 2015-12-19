@@ -24,7 +24,7 @@
       <li class="dropdown-top"><a href="#">Tables</a>
         <ul class="dropdown-inside">
           <li><a href="Actions?action=empView">Emp</a></li>
-          <li><a href="#">Dept</a></li>
+          <li><a href="Actions?action=deptView">Dept</a></li>
         </ul>
       </li>
       <li class="dropdown-top"><a href="Actions?action=help">Help</a></li>
