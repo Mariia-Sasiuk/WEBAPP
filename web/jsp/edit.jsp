@@ -1,4 +1,4 @@
-<%@ page import="main.java.lab3.DataBase" %>
+<%@ page import="main.java.lab3.model.DataBase" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
@@ -37,17 +37,26 @@
 
 <div id="center">
   <input type="checkbox" id="addEmp" name="addEmp" value="addEmp">Add new employee<br>
-  <div id="vismore">
+  <div id="vismoreEmp">
     <p>Please, specify following params:</p>
-    Empno: <input name="paramsEmp" ><br>
-    Ename: <input name="paramsEmp" ><br>
-    Job: <input name="paramsEmp" ><br>
-    MGR: <input name="paramsEmp" ><br>
-    Hiredate: <input name="paramsEmp" ><br>
-    Sal: <input name="paramsEmp" ><br>
-    Comm: <input name="paramsEmp" ><br>
-    Deptno: <input name="paramsEmp" ><br>
+    <p>Empno:    <input name="empno" ><br></p>
+    <p>Ename:    <input name="ename" ><br></p>
+    <p>Job:      <input name="job" ><br></p>
+    <p>MGR:      <input name="mgr" ><br></p>
+    <p>Hiredate: <input name="date" ><br></p>
+    <p>Sal:      <input name="sal" ><br></p>
+    <p>Comm:     <input name="comm" ><br></p>
+    <p>Deptno:   <input name="deptno" ><br></p>
+    <input type="button" name="addEmp" value="ADD">
 </div>
+
+  <input type="checkbox" id="addDept" name="addDept" value="addDept">Add new department<br>
+  <div id="vismoreDept">
+    <p>Please, specify following params:</p>
+    Deptno:   <input name="paramsDept" ><br>
+    Dname:    <input name="paramsDept" ><br>
+    Loc:      <input name="paramsDept" ><br>
+  </div>
 
 </div>
 

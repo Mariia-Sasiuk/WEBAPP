@@ -1,5 +1,5 @@
-<%@ page import="main.java.lab3.Department" %>
-<%@ page import="main.java.lab3.DataBase" %>
+<%@ page import="main.java.lab3.model.Department" %>
+<%@ page import="main.java.lab3.model.DataBase" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
@@ -41,7 +41,7 @@
       <th>Dname</th>
       <th>Loc</th>
     </tr>
-    <% for (main.java.lab3.Department dept : DataBase.departaments){%>
+    <% for (Department dept : DataBase.departaments){%>
     <tr><td><%=dept.getDeptno()%></td>
       <td><%=dept.getDname()%></td>
       <td><%=dept.getLoc()%></td>

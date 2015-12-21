@@ -1,4 +1,4 @@
-package main.java.lab3;
+package main.java.lab3.model;
 
 /**
  * Created by Mari on 18.12.2015.

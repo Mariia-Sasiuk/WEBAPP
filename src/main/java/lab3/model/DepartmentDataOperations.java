@@ -1,4 +1,4 @@
-package main.java.lab3;
+package main.java.lab3.model;
 
 import java.sql.*;
 

@@ -1,5 +1,5 @@
-<%@ page import="main.java.lab3.DataBase" %>
-<%@ page import="main.java.lab3.Employe" %>
+<%@ page import="main.java.lab3.model.DataBase" %>
+<%@ page import="main.java.lab3.model.Employe" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari

@@ -1,4 +1,4 @@
-<%@ page import="main.java.lab3.DataBase" %>
+<%@ page import="main.java.lab3.model.DataBase" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
@@ -35,7 +35,7 @@
 
 <div id="center">
 <p>bla bla bla</p>
-  <%--<%=DataBase.getTables()%>--%>
+  <%--<%=DataBase.executeSelect()%>--%>
 
 
 </div>

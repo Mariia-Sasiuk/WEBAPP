@@ -6,7 +6,7 @@
     <servlet>
         <display-name>DemoServlet</display-name>
         <servlet-name>Main</servlet-name>
-        <servlet-class>main.java.lab3.Main</servlet-class>
+        <servlet-class>main.java.lab3.controller.Main</servlet-class>
     </servlet>
 
     <servlet-mapping>

@@ -1,10 +1,17 @@
 $(document).ready(function () {
 	$('#addEmp').change(function(){
 	if ($('#addEmp').is(":checked"))
-		$("#vismore").css("visibility","visible");
+		$("#vismoreEmp").css("visibility","visible");
 	else
-		$("#vismore").css("visibility","hidden");
+		$("#vismoreEmp").css("visibility","hidden");
 	 
  });
 
+	$('#addDept').change(function(){
+		if ($('#addDept').is(":checked"))
+			$("#vismoreDept").css("visibility","visible");
+		else
+			$("#vismoreDept").css("visibility","hidden");
+
+	});
 });
