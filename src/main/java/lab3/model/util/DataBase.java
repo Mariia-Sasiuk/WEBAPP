@@ -1,12 +1,10 @@
-package main.java.lab3.model;
-
-
+package main.java.lab3.model.util;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.ArrayList;
+
 
 public class DataBase {
 
@@ -33,34 +31,19 @@ public class DataBase {
             }
     }
 
-    private static final String SELECT_EMP = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0)  FROM  emp";
-    private static final String SELECT_DEPT = "SELECT * FROM dept";
-
-    public static ArrayList<Employe> employees = new ArrayList<>();
-    public static ArrayList<Department> departaments = new ArrayList<>();
-
-        public static void executeSelect(String table) {
-
+        public static void executeSelect(String query, ResultSetHandler handler ){
             try {
                 Statement statement = getConnection().createStatement();
-                ResultSet rs = null;
-
-                if ("Emp".equals(table)){
-                    rs = statement.executeQuery(SELECT_EMP);
-                    ResultSetMetaData rsmd = rs.getMetaData();
-                    EmployeeDataOperations.selectAllEmp(rs, rsmd);
-                }
-                else if ("Dept".equals(table)){
-                    rs = statement.executeQuery(SELECT_DEPT);
-                    ResultSetMetaData rsmd = rs.getMetaData();
-                    DepartmentDataOperations.selectAllDept(rs, rsmd);
-                }
+                ResultSet rs = statement.executeQuery(query);
+                handler.onResultSet(rs);
 
                 rs.close();
                 statement.close();
-            } catch (Exception e) {
-               // Do not forget to add LOGs
-            } finally {
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally {
                 closeConnection();
             }
         }

@@ -1,5 +1,5 @@
-<%@ page import="main.java.lab3.model.DataBase" %>
-<%@ page import="main.java.lab3.model.Employe" %>
+<%@ page import="main.java.lab3.model.Employee" %>
+<%@ page import="java.util.Collection" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
@@ -46,7 +46,8 @@
       <th>Comm</th>
       <th>Deptno</th>
     </tr>
-  <% for (Employe emp : DataBase.employees){%>
+      <% Collection<Employee> emps = (Collection<Employee>) request.getAttribute("Emp"); %>
+      <% for (Employee emp : emps){%>
           <tr><td><%=emp.getEmpno()%></td>
                   <td><%=emp.getEname()%></td>
                   <td><%=emp.getJob()%></td>
@@ -66,7 +67,7 @@
 
 </div>
 <footer>
-  <p>Mariia Sasiuk<br> 2015 <p>
+  <p>Mariia Sasiuk<br> 2016 <p>
 </footer>
 
 </body>

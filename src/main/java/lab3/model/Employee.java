@@ -4,7 +4,7 @@ package main.java.lab3.model;
 /**
  * Created by Mari on 15.12.2015.
  */
-public class Employe {
+public class Employee {
     int empno;
     String ename;
     String job;

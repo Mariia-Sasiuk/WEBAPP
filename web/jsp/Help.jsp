@@ -1,4 +1,3 @@
-<%@ page import="main.java.lab3.model.DataBase" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
@@ -42,7 +41,7 @@
 
 </div>
 <footer>
-  <p>Mariia Sasiuk<br> 2015 <p>
+  <p>Mariia Sasiuk<br> 2016<p>
 </footer>
 
 </body>

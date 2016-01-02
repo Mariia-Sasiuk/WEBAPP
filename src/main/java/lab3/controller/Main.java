@@ -1,6 +1,8 @@
 package main.java.lab3.controller;
 
-import main.java.lab3.model.DataBase;
+import main.java.lab3.model.DepartmentDataOperations;
+import main.java.lab3.model.EmployeeDataOperations;
+
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -29,8 +31,8 @@ private static String performAction(HttpServletRequest req) {
 
     if (!action.isEmpty()){
         switch (action){
-            case "empView"           : return tableURL("Emp");
-            case "deptView"           : return tableURL("Dept");
+            case "empView"           : return tableURL(req,"Emp");
+            case "deptView"           : return tableURL(req,"Dept");
             case "navigation"         : return navigateURL();
             case "help"             : return indexURL();
             case "edit"             : return editURL();
@@ -39,8 +41,8 @@ private static String performAction(HttpServletRequest req) {
     }
 
 
-    String ename = req.getParameter("ename");
-    System.out.println("ENAME="+ ename);
+//    String ename = req.getParameter("ename");
+//    System.out.println("ENAME="+ ename);
 
      return indexURL();
 }
@@ -51,10 +53,12 @@ private static String performAction(HttpServletRequest req) {
     private static String navigateURL(){
         return "/jsp/Main.jsp";
     }
-    private static String tableURL(String tableFlag){
-        DataBase.executeSelect(tableFlag);
+    private static String tableURL(HttpServletRequest req,String tableFlag){
+        if ("Dept".equals(tableFlag))
+            req.setAttribute(tableFlag, DepartmentDataOperations.selectAllDept());
+        else
+            req.setAttribute(tableFlag, EmployeeDataOperations.selectAllEmp());
         return "/jsp/view"+tableFlag+".jsp";
     }
-
 
 }

@@ -1,5 +1,5 @@
 <%@ page import="main.java.lab3.model.Department" %>
-<%@ page import="main.java.lab3.model.DataBase" %>
+<%@ page import="java.util.Collection" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
@@ -41,7 +41,8 @@
       <th>Dname</th>
       <th>Loc</th>
     </tr>
-    <% for (Department dept : DataBase.departaments){%>
+    <% Collection<Department> deps = (Collection<Department>) request.getAttribute("Dept"); %>
+    <% for (Department dept : deps){%>
     <tr><td><%=dept.getDeptno()%></td>
       <td><%=dept.getDname()%></td>
       <td><%=dept.getLoc()%></td>
@@ -56,7 +57,7 @@
 
 </div>
 <footer>
-  <p>Mariia Sasiuk<br> 2015 <p>
+  <p>Mariia Sasiuk<br> 2016 <p>
 </footer>
 
 </body>
