@@ -1,7 +1,7 @@
-package main.java.lab3.model;
+package java_.lab3.model;
 
-import main.java.lab3.model.util.DataBase;
-import main.java.lab3.model.util.ResultSetHandler;
+import java_.lab3.model.util.DataBase;
+import java_.lab3.model.util.ResultSetHandler;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -26,13 +26,13 @@ public class EmployeeDataOperations {
                 while (rs.next()) {
                     Employee employee = new Employee();
                     for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        if (i==1) employee.setEmpno(Integer.parseInt(rs.getString(i)));
-                        else if (i==2) employee.setEname(rs.getString(i));
-                        else if (i==3) employee.setJob(rs.getString(i));
-                        else if (i==4) employee.setMgr(Integer.parseInt(rs.getString(i)));
-                        else if (i==5) employee.setHiredate(rs.getString(i));
-                        else if (i==6) employee.setSal(Double.parseDouble(rs.getString(i)));
-                        else if (i==7) employee.setComm(Double.parseDouble(rs.getString(i)));
+                        if (i == 1) employee.setEmpno(Integer.parseInt(rs.getString(i)));
+                        else if (i == 2) employee.setEname(rs.getString(i));
+                        else if (i == 3) employee.setJob(rs.getString(i));
+                        else if (i == 4) employee.setMgr(Integer.parseInt(rs.getString(i)));
+                        else if (i == 5) employee.setHiredate(rs.getString(i));
+                        else if (i == 6) employee.setSal(Double.parseDouble(rs.getString(i)));
+                        else if (i == 7) employee.setComm(Double.parseDouble(rs.getString(i)));
                         else employee.setDeptno(Integer.parseInt(rs.getString(i)));
                     }
                     emps.add(employee);

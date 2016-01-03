@@ -1,18 +1,18 @@
-package main.java.lab3.model;
+package java_.lab3.model;
 
 
 /**
  * Created by Mari on 15.12.2015.
  */
 public class Employee {
-    int empno;
-    String ename;
-    String job;
-    int mgr;
-    String hiredate;
-    double sal;
-    double comm;
-    int deptno;
+    private int empno;
+    private String ename;
+    private String job;
+    private int mgr;
+    private String hiredate;
+    private double sal;
+    private double comm;
+    private int deptno;
 
     public int getEmpno() {
         return empno;

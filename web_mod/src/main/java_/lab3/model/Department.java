@@ -1,13 +1,13 @@
-package main.java.lab3.model;
+package java_.lab3.model;
 
 /**
  * Created by Mari on 18.12.2015.
  */
 public class Department {
 
-    int deptno;
-    String dname;
-    String loc;
+    private int deptno;
+    private String dname;
+    private String loc;
 
     public int getDeptno() {
         return deptno;

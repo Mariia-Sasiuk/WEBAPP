@@ -1,7 +1,7 @@
-package main.java.lab3.controller;
+package java_.lab3.controller;
 
-import main.java.lab3.model.DepartmentDataOperations;
-import main.java.lab3.model.EmployeeDataOperations;
+import java_.lab3.model.DepartmentDataOperations;
+import java_.lab3.model.EmployeeDataOperations;
 
 
 import java.io.IOException;

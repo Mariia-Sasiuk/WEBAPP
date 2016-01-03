@@ -1,7 +1,7 @@
-package main.java.lab3.model;
+package java_.lab3.model;
 
-import main.java.lab3.model.util.DataBase;
-import main.java.lab3.model.util.ResultSetHandler;
+import java_.lab3.model.util.DataBase;
+import java_.lab3.model.util.ResultSetHandler;
 
 import java.sql.*;
 import java.util.ArrayList;
