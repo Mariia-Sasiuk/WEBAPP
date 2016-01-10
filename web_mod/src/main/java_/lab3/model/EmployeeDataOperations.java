@@ -3,9 +3,7 @@ package java_.lab3.model;
 import java_.lab3.model.util.DataBase;
 import java_.lab3.model.util.ResultSetHandler;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -15,6 +13,7 @@ import java.util.Collection;
 public class EmployeeDataOperations {
 
     private static final String QUERY_SELECT_EMP = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0)  FROM  emp";
+    private static final String QUERY_INCERT_EMP = "INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     public static Collection<Employee> selectAllEmp() {
         final Collection<Employee> emps = new ArrayList<Employee>();
@@ -42,7 +41,11 @@ public class EmployeeDataOperations {
         return emps;
     }
 
-    public void incertEmp(){}
+    public void insertEmp(){
+
+
+
+    }
     public void updateEmp(){}
     public void deleteEmp(){}
 }

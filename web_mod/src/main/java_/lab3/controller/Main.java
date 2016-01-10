@@ -36,20 +36,28 @@ private static String performAction(HttpServletRequest req) {
             case "navigation"         : return navigateURL();
             case "help"             : return indexURL();
             case "edit"             : return editURL();
+            case "insEmp"           : return editURL(req,"Emp");
+            case "insDept"           : return editURL(req,"Dept");
             default                 : return indexURL();
         }
     }
-
-
-//    String ename = req.getParameter("ename");
-//    System.out.println("ENAME="+ ename);
 
      return indexURL();
 }
     private static String indexURL(){
         return "/jsp/Help.jsp";
     }
-    private static String editURL(){ return "/jsp/edit.jsp"; }
+    private static String editURL(HttpServletRequest req, String tableFlag){
+        if ("Dept".equals(tableFlag)){
+            DepartmentDataOperations.insertDept(req);
+        }
+        else {
+            String ename = req.getParameter("ename");
+            System.out.println("ENAME="+ ename);
+        }
+        return "/jsp/edit.jsp"; }
+    private static String editURL(){
+        return "/jsp/edit.jsp"; }
     private static String navigateURL(){
         return "/jsp/Main.jsp";
     }

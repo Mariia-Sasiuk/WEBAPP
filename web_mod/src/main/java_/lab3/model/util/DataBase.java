@@ -48,7 +48,16 @@ public class DataBase {
             }
         }
 
-        public static void executeIncert(){}
+        public static void executeInsert(String query, ResultSetHandler handler){
+            try(PreparedStatement prep = getConnection().prepareStatement(query)) {
+                handler.onInsertSet(prep);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally {
+                closeConnection();
+            }
+        }
         public static void executeUpdate(){}
         public static void executeDelete(){}
 
