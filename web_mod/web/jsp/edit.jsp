@@ -66,7 +66,7 @@
 
 </div>
 <footer>
-  <p>Mariia Sasiuk<br> 2016___ <p>
+  <p>Mariia Sasiuk<br> 2016 <p>
 </footer>
 
 </body>
