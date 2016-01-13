@@ -10,11 +10,11 @@ public class UIActionController {
     private static Map<String,Action> procStore = new HashMap<String,Action>();
 
     private void initProcStore(){
-        procStore.put("edit", new NavigateEdit());
-        procStore.put("navigation", new NavigateMain());
-        procStore.put("help", new NavigateHelp());
-        procStore.put("insDept", new NewDepartment());
-        procStore.put("insEmp", new NewEmployee());
+        procStore.put("edit", new navigateEdit());
+        procStore.put("navigation", new navigateMain());
+        procStore.put("help", new navigateHelp());
+        procStore.put("insDept", new newDepartment());
+        procStore.put("insEmp", new newEmployee());
         procStore.put("empView", new ViewEmployees());
         procStore.put("deptView", new ViewDepartments());
     }

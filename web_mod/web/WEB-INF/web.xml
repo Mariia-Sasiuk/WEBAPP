@@ -10,23 +10,23 @@
 
         <init-param>
             <param-name>edit</param-name>
-            <param-value>application.lab3.controller.UIActions.NavigateEdit</param-value>
+            <param-value>application.lab3.controller.UIActions.navigateEdit</param-value>
         </init-param>
         <init-param>
             <param-name>navigation</param-name>
-            <param-value>application.lab3.controller.UIActions.NavigateMain</param-value>
+            <param-value>application.lab3.controller.UIActions.navigateMain</param-value>
         </init-param>
         <init-param>
             <param-name>help</param-name>
-            <param-value>application.lab3.controller.UIActions.NavigateHelp</param-value>
+            <param-value>application.lab3.controller.UIActions.navigateHelp</param-value>
         </init-param>
         <init-param>
             <param-name>insDept</param-name>
-            <param-value>application.lab3.controller.UIActions.NewDepartmentewD</param-value>
+            <param-value>application.lab3.controller.UIActions.newDepartmentewD</param-value>
         </init-param>
         <init-param>
             <param-name>insEmp</param-name>
-            <param-value>application.lab3.controller.UIActions.NewEmployee</param-value>
+            <param-value>application.lab3.controller.UIActions.newEmployee</param-value>
         </init-param>
         <init-param>
             <param-name>empView</param-name>
