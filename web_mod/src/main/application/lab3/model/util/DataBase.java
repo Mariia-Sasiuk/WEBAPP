@@ -1,4 +1,4 @@
-package java_.lab3.model.util;
+package application.lab3.model.util;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

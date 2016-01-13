@@ -6,7 +6,37 @@
     <servlet>
         <display-name>DemoServlet</display-name>
         <servlet-name>Main</servlet-name>
-        <servlet-class>java_.lab3.controller.Main</servlet-class>
+        <servlet-class>application.lab3.controller.Main</servlet-class>
+
+        <init-param>
+            <param-name>edit</param-name>
+            <param-value>application.lab3.controller.UIActions.NavigateEdit</param-value>
+        </init-param>
+        <init-param>
+            <param-name>navigation</param-name>
+            <param-value>application.lab3.controller.UIActions.NavigateMain</param-value>
+        </init-param>
+        <init-param>
+            <param-name>help</param-name>
+            <param-value>application.lab3.controller.UIActions.NavigateHelp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>insDept</param-name>
+            <param-value>application.lab3.controller.UIActions.NewDepartmentewD</param-value>
+        </init-param>
+        <init-param>
+            <param-name>insEmp</param-name>
+            <param-value>application.lab3.controller.UIActions.NewEmployee</param-value>
+        </init-param>
+        <init-param>
+            <param-name>empView</param-name>
+            <param-value>application.lab3.controller.UIActions.ViewEmployees</param-value>
+        </init-param>
+        <init-param>
+            <param-name>deptView</param-name>
+            <param-value>application.lab3.controller.UIActions.ViewDepartments</param-value>
+        </init-param>
+
     </servlet>
 
     <servlet-mapping>

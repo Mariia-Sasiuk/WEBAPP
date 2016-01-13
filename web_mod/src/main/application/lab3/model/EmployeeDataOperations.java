@@ -1,7 +1,7 @@
-package java_.lab3.model;
+package application.lab3.model;
 
-import java_.lab3.model.util.DataBase;
-import java_.lab3.model.util.ResultSetHandler;
+import application.lab3.model.util.DataBase;
+import application.lab3.model.util.ResultSetHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.*;

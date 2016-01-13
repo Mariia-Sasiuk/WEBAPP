@@ -1,4 +1,4 @@
-package java_.lab3.model;
+package application.lab3.model;
 
 /**
  * Created by Mari on 18.12.2015.

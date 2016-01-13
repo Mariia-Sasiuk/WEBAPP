@@ -1,4 +1,4 @@
-<%@ page import="java_.lab3.model.Employee" %>
+<%@ page import="application.lab3.model.Employee" %>
 <%@ page import="java.util.Collection" %>
 <%--
   Created by IntelliJ IDEA.

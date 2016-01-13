@@ -1,4 +1,4 @@
-package java_.lab3.model;
+package application.lab3.model;
 
 
 /**
