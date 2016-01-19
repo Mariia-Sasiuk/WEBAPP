@@ -1,4 +1,4 @@
-package application.lab3.controller.UIActions;
+package application.lab3.controller.actions;
 
 import application.lab3.model.EmployeeDataOperations;
 

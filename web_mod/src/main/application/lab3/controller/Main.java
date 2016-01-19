@@ -1,6 +1,7 @@
 package application.lab3.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,9 +13,10 @@ public class Main extends HttpServlet {
 
     public void init(ServletConfig var1) throws ServletException{
         try {
-            while (var1.getInitParameterNames().hasMoreElements()){
-                String param =  var1.getInitParameterNames().nextElement()+"";
-                UIActionController.initProcStore(param, UIActionController.refl(var1.getInitParameter(param)));
+            Enumeration e = var1.getInitParameterNames();
+            while (e.hasMoreElements()){
+                String param =  e.nextElement().toString();
+                ActionHandler.initProcStore(param, ActionHandler.getActionObj(var1.getInitParameter(param)));
             }
 
         } catch (   ClassNotFoundException |
@@ -28,7 +30,7 @@ public class Main extends HttpServlet {
 
     protected void service(HttpServletRequest request, HttpServletResponse response)  {
 
-        String resultURL = UIActionController.getProcess(request).execute(request);
+        String resultURL = ActionHandler.getProcess(request).execute(request);
         RequestDispatcher dispatcher = request.getRequestDispatcher( resultURL );
 
         try {dispatcher.forward(request, response);}

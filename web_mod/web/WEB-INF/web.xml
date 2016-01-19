@@ -10,31 +10,31 @@
 
         <init-param>
             <param-name>edit</param-name>
-            <param-value>application.lab3.controller.UIActions.navigateEdit</param-value>
+            <param-value>application.lab3.controller.actions.NavigateEdit</param-value>
         </init-param>
         <init-param>
             <param-name>navigation</param-name>
-            <param-value>application.lab3.controller.UIActions.navigateMain</param-value>
+            <param-value>application.lab3.controller.actions.NavigateMain</param-value>
         </init-param>
         <init-param>
             <param-name>help</param-name>
-            <param-value>application.lab3.controller.UIActions.navigateHelp</param-value>
+            <param-value>application.lab3.controller.actions.NavigateHelp</param-value>
         </init-param>
         <init-param>
             <param-name>insDept</param-name>
-            <param-value>application.lab3.controller.UIActions.newDepartmentewD</param-value>
+            <param-value>application.lab3.controller.actions.NewDepartment</param-value>
         </init-param>
         <init-param>
             <param-name>insEmp</param-name>
-            <param-value>application.lab3.controller.UIActions.newEmployee</param-value>
+            <param-value>application.lab3.controller.actions.NewEmployee</param-value>
         </init-param>
         <init-param>
             <param-name>empView</param-name>
-            <param-value>application.lab3.controller.UIActions.ViewEmployees</param-value>
+            <param-value>application.lab3.controller.actions.ViewEmployees</param-value>
         </init-param>
         <init-param>
             <param-name>deptView</param-name>
-            <param-value>application.lab3.controller.UIActions.ViewDepartments</param-value>
+            <param-value>application.lab3.controller.actions.ViewDepartments</param-value>
         </init-param>
 
     </servlet>
