@@ -14,4 +14,8 @@ $(document).ready(function () {
 			$("#vismoreDept").css("visibility","hidden");
 
 	});
+
+	$(function() {
+		$( "#datepicker" ).datepicker();
+	});
 });

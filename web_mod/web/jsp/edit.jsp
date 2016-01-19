@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="style/style.css" type="text/css" media="all" />
   <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
   <script src="js/script.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 <header>
@@ -43,7 +45,7 @@
     <p>Ename:....<input name="ename" value="John" ><br></p>
     <p>Job:......<input name="job" ><br></p>
     <p>MGR:......<input name="mgr" ><br></p>
-    <p>Hiredate:.<input name="date" ><br></p>
+    <p>Hiredate:.<input name="date" id="datepicker"><br></p>
     <p>Sal:......<input name="sal" ><br></p>
     <p>Comm:.....<input name="comm" ><br></p>
     <p>Deptno:...<input name="deptno" ><br></p>

@@ -24,15 +24,6 @@
     <build>
     <sourceDirectory>src/main</sourceDirectory>
 
-    <!--<resources>-->
-        <!--<resource>-->
-            <!--<directory>web</directory>-->
-            <!--<includes>-->
-                <!--<include>**/*.xml</include>-->
-            <!--</includes>-->
-        <!--</resource>-->
-    <!--</resources>-->
-
     <plugins>
         <plugin>
             <artifactId>maven-compiler-plugin</artifactId>
