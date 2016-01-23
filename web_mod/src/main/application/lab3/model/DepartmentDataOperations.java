@@ -38,13 +38,12 @@ public class DepartmentDataOperations {
         return deps;
     }
 
-    public static void insertDept(HttpServletRequest req){
+    public static void insertDept(Department dept){
         DataBase.executeInsert(QUERY_INSERT_DEPT,new ResultSetHandler(){
             public void onInsertSet(PreparedStatement prep) throws SQLException {
-                prep.setInt(1, Integer.parseInt(req.getParameter("deptno")));
-                prep.setString(2, req.getParameter("dname"));
-                prep.setString(3, req.getParameter("loc"));
-                prep.execute();
+                prep.setInt(1,dept.getDeptno());
+                prep.setString(2,dept.getDname() );
+                prep.setString(3,dept.getLoc() );
             }
         });
     }

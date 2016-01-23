@@ -1,6 +1,8 @@
 package application.lab3.model;
 
 
+import java.sql.Date;
+
 /**
  * Created by Mari on 15.12.2015.
  */
@@ -9,7 +11,7 @@ public class Employee {
     private String ename;
     private String job;
     private int mgr;
-    private String hiredate;
+    private Date hiredate;
     private double sal;
     private double comm;
     private int deptno;
@@ -46,11 +48,11 @@ public class Employee {
         this.mgr = mgr;
     }
 
-    public String getHiredate() {
+    public Date getHiredate() {
         return hiredate;
     }
 
-    public void setHiredate(String hiredate) {
+    public void setHiredate( Date hiredate) {
         this.hiredate = hiredate;
     }
 

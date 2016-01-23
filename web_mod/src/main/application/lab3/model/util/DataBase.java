@@ -26,6 +26,7 @@ public class DataBase {
                 PreparedStatement prep = connection.prepareStatement(query))
             {
                 handler.onInsertSet(prep);
+                prep.execute();
             }
             catch (SQLException | NamingException e)
             {

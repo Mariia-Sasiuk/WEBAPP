@@ -1,5 +1,6 @@
 package application.lab3.controller.actions;
 
+import application.lab3.model.Department;
 import application.lab3.model.DepartmentDataOperations;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +10,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class NewDepartment implements Action {
     public String execute(HttpServletRequest req) {
-        DepartmentDataOperations.insertDept(req);
+        Department dept = new Department();
+        dept.setDeptno(Integer.parseInt(req.getParameter("deptno")));
+        dept.setDname(req.getParameter("dname"));
+        dept.setLoc(req.getParameter("loc"));
+        DepartmentDataOperations.insertDept(dept);
         return "/jsp/edit.jsp";
     }
 }

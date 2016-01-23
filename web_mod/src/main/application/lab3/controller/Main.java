@@ -6,18 +6,22 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
+import static java.util.Collections.list;
 
 
 public class Main extends HttpServlet {
+//    final Logger LOG = LoggerFactory.getLogger(Main.class);
+    private ActionHandler actions = new ActionHandler();
 
     public void init(ServletConfig var1) throws ServletException{
+//        LOG.info("Servlet started its work");
         try {
-            Enumeration e = var1.getInitParameterNames();
-            while (e.hasMoreElements()){
-                String param =  e.nextElement().toString();
-                ActionHandler.initProcStore(param, ActionHandler.getActionObj(var1.getInitParameter(param)));
-            }
+            Enumeration<String> e = var1.getInitParameterNames();
+            for(String param : list(e) )
+                actions.put(param, var1.getInitParameter(param));
 
         } catch (   ClassNotFoundException |
                     InstantiationException |
@@ -30,7 +34,7 @@ public class Main extends HttpServlet {
 
     protected void service(HttpServletRequest request, HttpServletResponse response)  {
 
-        String resultURL = ActionHandler.getProcess(request).execute(request);
+        String resultURL = actions.getProcess(request).execute(request);
         RequestDispatcher dispatcher = request.getRequestDispatcher( resultURL );
 
         try {dispatcher.forward(request, response);}

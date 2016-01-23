@@ -30,7 +30,7 @@ public class EmployeeDataOperations {
                         else if (i == 2) employee.setEname(rs.getString(i));
                         else if (i == 3) employee.setJob(rs.getString(i));
                         else if (i == 4) employee.setMgr(Integer.parseInt(rs.getString(i)));
-                        else if (i == 5) employee.setHiredate(rs.getString(i));
+                        else if (i == 5) employee.setHiredate(rs.getDate(i));
                         else if (i == 6) employee.setSal(Double.parseDouble(rs.getString(i)));
                         else if (i == 7) employee.setComm(Double.parseDouble(rs.getString(i)));
                         else employee.setDeptno(Integer.parseInt(rs.getString(i)));
@@ -42,18 +42,18 @@ public class EmployeeDataOperations {
         return emps;
     }
 
-    public static void insertEmp(HttpServletRequest req){
+    public static void insertEmp(Employee emp){
         DataBase.executeInsert(QUERY_INSERT_EMP,new ResultSetHandler(){
             public void onInsertSet(PreparedStatement prep) throws SQLException {
-                prep.setInt(1, Integer.parseInt(req.getParameter("empno")));
-                prep.setString(2, req.getParameter("ename"));
-                prep.setString(3, req.getParameter("job"));
-                prep.setInt(4, Integer.parseInt(req.getParameter("mgr")));
-                prep.setDate(5, Date.valueOf(req.getParameter("date")));
-                prep.setDouble(6, Double.parseDouble(req.getParameter("sal")));
-                prep.setDouble(7, Double.parseDouble(req.getParameter("comm")));
-                prep.setInt(8, Integer.parseInt(req.getParameter("deptno")));
-                prep.execute();
+                prep.setInt(1, emp.getEmpno());
+                prep.setString(2, emp.getEname());
+                prep.setString(3, emp.getJob());
+                prep.setInt(4, emp.getMgr());
+                prep.setDate(5, emp.getHiredate());
+                prep.setDouble(6, emp.getSal());
+                prep.setDouble(7, emp.getComm());
+                prep.setInt(8, emp.getDeptno());
+//                prep.execute();
             }
         });
     }

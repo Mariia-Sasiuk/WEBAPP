@@ -59,5 +59,6 @@
     <orderEntry type="library" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:2.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-filtering:1.0-beta-2" level="project" />
+    <orderEntry type="library" name="slf4j-simple-1.7.13" level="project" />
   </component>
 </module>
