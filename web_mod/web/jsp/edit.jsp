@@ -9,10 +9,15 @@
 <html>
 <head>
   <link rel="stylesheet" href="style/style.css" type="text/css" media="all" />
-  <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <script src="http://wisdomweb.ru/editor/localization.js"></script>
+  <%--<link rel="stylesheet" href="style/style.css" type="text/css" media="all" />--%>
+  <%--<script type="text/javascript" src="js/jquery-2.0.3.js"></script>--%>
   <script src="js/script.js"></script>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <%--<script src="//code.jquery.com/jquery-1.10.2.js"></script>--%>
+  <%--<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>--%>
 </head>
 <body>
 <header>
@@ -45,7 +50,7 @@
     <p>Ename:....<input name="ename" value="John" ><br></p>
     <p>Job:......<input name="job" ><br></p>
     <p>MGR:......<input name="mgr" ><br></p>
-    <p>Hiredate:.<input name="date" id="datepicker"><br></p>
+    <p>Hiredate:.<input type="text" name="date" id="datepicker"><br></p>
     <p>Sal:......<input name="sal" ><br></p>
     <p>Comm:.....<input name="comm" ><br></p>
     <p>Deptno:...<input name="deptno" ><br></p>

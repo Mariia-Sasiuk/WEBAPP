@@ -10,7 +10,7 @@ body{	background:#CFCFCF;
 	font-style:italic;
 	}
 
-
+.ui-datepicker {font-size:55%; }
 #navigation {   background:#CFCFCF;
 		height:30px;
 		width:600px;
