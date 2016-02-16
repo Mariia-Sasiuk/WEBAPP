@@ -13,11 +13,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
   <script src="http://wisdomweb.ru/editor/localization.js"></script>
-  <%--<link rel="stylesheet" href="style/style.css" type="text/css" media="all" />--%>
-  <%--<script type="text/javascript" src="js/jquery-2.0.3.js"></script>--%>
   <script src="js/script.js"></script>
-  <%--<script src="//code.jquery.com/jquery-1.10.2.js"></script>--%>
-  <%--<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>--%>
 </head>
 <body>
 <header>
@@ -43,31 +39,32 @@
 
 <div id="center">
   <form action="Actions">
-  <input type="checkbox" id="addEmp" name="addEmp" value="addEmp">Add new employee<br>
-  <div id="vismoreEmp">
-    <p>Please, specify following params:</p>
-    <p>Empno:....<input name="empno" ><br></p>
-    <p>Ename:....<input name="ename" value="John" ><br></p>
-    <p>Job:......<input name="job" ><br></p>
-    <p>MGR:......<input name="mgr" ><br></p>
-    <p>Hiredate:.<input type="text" name="date" id="datepicker"><br></p>
-    <p>Sal:......<input name="sal" ><br></p>
-    <p>Comm:.....<input name="comm" ><br></p>
-    <p>Deptno:...<input name="deptno" ><br></p>
-    <input type="hidden" name="action" value="insEmp">
-    <button type="submit" name="addEmp">ADD</button>
+    <input type="checkbox" id="addEmp" name="addEmp" value="addEmp">Add new employee<br>
+    <div id="vismoreEmp">
+      <p>Please, specify following params:</p>
+      <p>Empno:....<input name="empno" ><br></p>
+      <p>Ename:....<input name="ename" value="John" ><br></p>
+      <p>Job:......<input name="job" ><br></p>
+      <p>MGR:......<input name="mgr" ><br></p>
+      <p>Hiredate:.<input type="text" name="date" id="datepicker"><br></p>
+      <p>Sal:......<input name="sal" ><br></p>
+      <p>Comm:.....<input name="comm" ><br></p>
+      <p>Deptno:...<input name="deptno" ><br></p>
+      <input type="hidden" name="action" value="insEmp">
+      <button type="submit" name="addEmp">ADD</button>
     </div>
   </form>
   <form>
-  <input type="checkbox" id="addDept" name="addDept" value="addDept">Add new department<br>
-  <div id="vismoreDept">
-    <p>Please, specify following params:</p>
-    Deptno:...<input name="deptno" ><br>
-    Dname:....<input name="dname" ><br>
-    Loc:......<input name="loc" ><br>
-    <input type="hidden" name="action" value="insDept">
-    <button type="submit" name="addDept">ADD</button>
-  </div>
+    <input type="checkbox" id="addDept" name="addDept" value="addDept">Add new department<br>
+    <div id="vismoreDept">
+      <p>Please, specify following params:</p>
+      Deptno:...<input name="deptno" ><br>
+      Dname:....<input name="dname" ><br>
+      Loc:......<input name="loc" ><br>
+      <input type="hidden" name="action" value="insDept">
+      <button type="submit" name="addDept">ADD</button>
+
+    </div>
   </form>
 </div>
 

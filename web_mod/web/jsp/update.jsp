@@ -3,8 +3,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Mari
-  Date: 19.12.2015
-  Time: 18:34
+  Date: 07.02.2016
+  Time: 3:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-  <h1>DeptView Page</h1>
+  <h1>Update MOD</h1>
 </header>
 <div id="recovernavig">
   <div id="navigation">
@@ -35,24 +35,21 @@
 </div>
 
 <div id="center">
-  <table>
-    <tr>
-      <th>Deptno</th>
-      <th>Dname</th>
-      <th>Loc</th>
-    </tr>
+  <form>
+      <p>Please, specify following params:</p>
     <% Collection<Department> deps = (Collection<Department>) request.getAttribute("Dept"); %>
     <% for (Department dept : deps){%>
-    <tr><td><a href="Actions?action=updDept&id=<%=dept.getDeptno()%>"><%=dept.getDeptno()%></a></td>
-      <td><%=dept.getDname()%></td>
-      <td><%=dept.getLoc()%></td>
-    </tr>
+      Deptno:...<input name="deptno" value="<%=dept.getDeptno()%>" readonly><br>
+      Dname:....<input name="dname" value="<%=dept.getDname()%>"><br>
+      Loc:......<input name="loc" value="<%=dept.getLoc()%>"><br>
     <%
       }
     %>
-  </table>
+      <%--<input type="hidden" name="action" value="updDeptParams">--%>
+      <button type="submit" name="action" value="updDeptParams">UPDATE</button>
+    <button type="submit" name="action" value="delDept">DELETE</button>
 
-
+  </form>
 </div>
 
 </div>

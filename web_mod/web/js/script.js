@@ -1,11 +1,11 @@
 $(document).ready(function () {
 	$('#addEmp').change(function(){
-	if ($('#addEmp').is(":checked"))
-		$("#vismoreEmp").css("visibility","visible");
-	else
-		$("#vismoreEmp").css("visibility","hidden");
-	 
- });
+		if ($('#addEmp').is(":checked"))
+			$("#vismoreEmp").css("visibility","visible");
+		else
+			$("#vismoreEmp").css("visibility","hidden");
+
+	});
 
 	$('#addDept').change(function(){
 		if ($('#addDept').is(":checked"))
@@ -15,7 +15,9 @@ $(document).ready(function () {
 
 	});
 
-	$("#datepicker").datepicker({dateFormat:"yy-mm-dd",beforeShow: function(){
-		$(".ui-datepicker").css('font-size', 12)
-	}});
+	$("#datepicker").datepicker({dateFormat:"yy-mm-dd"
+	});
 });
+
+//,beforeShow: function(){
+//	$(".ui-datepicker").css('font-size', 12)}

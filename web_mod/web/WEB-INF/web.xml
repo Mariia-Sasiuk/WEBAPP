@@ -36,6 +36,18 @@
             <param-name>deptView</param-name>
             <param-value>application.lab3.controller.actions.ViewDepartments</param-value>
         </init-param>
+        <init-param>
+            <param-name>updDept</param-name>
+            <param-value>application.lab3.controller.actions.UpdateDepartment</param-value>
+        </init-param>
+        <init-param>
+            <param-name>updDeptParams</param-name>
+            <param-value>application.lab3.controller.actions.UpdateDepartmentParams</param-value>
+        </init-param>
+        <init-param>
+            <param-name>delDept</param-name>
+            <param-value>application.lab3.controller.actions.DeleteDepartment</param-value>
+        </init-param>
 
     </servlet>
 

@@ -8,21 +8,29 @@ import java.sql.*;
 
 public class DataBase {
 
-        public static void executeSelect(String query, ResultSetHandler handler ){
-            try(Connection connection = ((DataSource) new InitialContext().lookup("studentDB")).getConnection();
-                Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery(query))
-            {
-                handler.onResultSet(rs);
-            }
-            catch (SQLException | NamingException e)
-            {
-                e.printStackTrace();
-            }
+private static DataSource lookupmyDB() throws NamingException {
+    InitialContext context = new InitialContext();
+    DataSource dataSource = (DataSource) context.lookup("studentDB");
+    return dataSource;
+}
+
+    public static void executeSelect(String query, ResultSetHandler handler ){
+        try(Connection connection = lookupmyDB().getConnection();
+            PreparedStatement prep = connection.prepareStatement(query);
+            ResultSet rs = prep.executeQuery())
+        {
+            handler.onResultSet(rs);
         }
+        catch (SQLException | NamingException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
 
         public static void executeInsert(String query, ResultSetHandler handler){
-            try(Connection connection = ((DataSource) new InitialContext().lookup("studentDB")).getConnection();
+            try(Connection connection = lookupmyDB().getConnection();
                 PreparedStatement prep = connection.prepareStatement(query))
             {
                 handler.onInsertSet(prep);
@@ -33,7 +41,30 @@ public class DataBase {
                 e.printStackTrace();
             }
         }
-        public static void executeUpdate(){}
-        public static void executeDelete(){}
+        public static void executeUpdate(String query, ResultSetHandler handler){
+            try(Connection connection = lookupmyDB().getConnection();
+                PreparedStatement prep = connection.prepareStatement(query))
+            {
+                handler.onInsertSet(prep);
+                prep.execute();
+            }
+            catch (SQLException | NamingException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        public static void executeDelete(String query, ResultSetHandler handler){
+            try(Connection connection = lookupmyDB().getConnection();
+                PreparedStatement prep = connection.prepareStatement(query))
+            {
+                handler.onInsertSet(prep);
+                prep.execute();
+            }
+            catch (SQLException | NamingException e)
+            {
+                e.printStackTrace();
+            }
+
+        }
 
     }
