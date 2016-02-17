@@ -16,10 +16,12 @@ private static DataSource lookupmyDB() throws NamingException {
 
     public static void executeSelect(String query, ResultSetHandler handler ){
         try(Connection connection = lookupmyDB().getConnection();
-            PreparedStatement prep = connection.prepareStatement(query);
-            ResultSet rs = prep.executeQuery())
-        {
-            handler.onResultSet(rs);
+            PreparedStatement prep = connection.prepareStatement(query)){
+            handler.prepStmntBuilder(prep);
+            try(ResultSet rs = prep.executeQuery())
+            {
+                handler.onResultSet(rs);
+            }
         }
         catch (SQLException | NamingException e)
         {
@@ -33,7 +35,7 @@ private static DataSource lookupmyDB() throws NamingException {
             try(Connection connection = lookupmyDB().getConnection();
                 PreparedStatement prep = connection.prepareStatement(query))
             {
-                handler.onInsertSet(prep);
+                handler.prepStmntBuilder(prep);
                 prep.execute();
             }
             catch (SQLException | NamingException e)
@@ -45,7 +47,7 @@ private static DataSource lookupmyDB() throws NamingException {
             try(Connection connection = lookupmyDB().getConnection();
                 PreparedStatement prep = connection.prepareStatement(query))
             {
-                handler.onInsertSet(prep);
+                handler.prepStmntBuilder(prep);
                 prep.execute();
             }
             catch (SQLException | NamingException e)
@@ -57,7 +59,7 @@ private static DataSource lookupmyDB() throws NamingException {
             try(Connection connection = lookupmyDB().getConnection();
                 PreparedStatement prep = connection.prepareStatement(query))
             {
-                handler.onInsertSet(prep);
+                handler.prepStmntBuilder(prep);
                 prep.execute();
             }
             catch (SQLException | NamingException e)

@@ -9,7 +9,7 @@ public class ResultSetHandler {
     public void onResultSet(ResultSet rs) throws SQLException {
 
     }
-    public void onInsertSet(PreparedStatement prep) throws SQLException {
+    public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
 
     }
 }

@@ -11,7 +11,7 @@ public class DeleteDepartment implements Action {
     @Override
     public String execute(HttpServletRequest req) {
         DepartmentDataOperations.deleteDept(Integer.parseInt(req.getParameter("deptno")));
-        req.setAttribute("Dept", DepartmentDataOperations.selectAllDept());
+        req.setAttribute("Dept", DepartmentDataOperations.selectAllDept("1"));
         return "/jsp/viewDept.jsp";
     }
 }

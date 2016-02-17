@@ -25,7 +25,7 @@
       <li class="dropdown-top"><a href="#">Tables</a>
         <ul class="dropdown-inside">
           <li><a href="Actions?action=empView">Emp</a></li>
-          <li><a href="Actions?action=deptView">Dept</a></li>
+          <li><a href="Actions?action=deptView&column=1">Dept</a></li>
         </ul>
       </li>
       <li class="dropdown-top"><a href="Actions?action=help">Help</a></li>
@@ -37,9 +37,9 @@
 <div id="center">
   <table>
     <tr>
-      <th>Deptno</th>
-      <th>Dname</th>
-      <th>Loc</th>
+      <th><a href="Actions?action=deptView&column=1">Deptno</a></th>
+      <th><a href="Actions?action=deptView&column=2">Dname</a></th>
+      <th><a href="Actions?action=deptView&column=3">Loc</a></th>
     </tr>
     <% Collection<Department> deps = (Collection<Department>) request.getAttribute("Dept"); %>
     <% for (Department dept : deps){%>

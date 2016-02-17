@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ViewDepartments implements Action {
 
     public String execute(HttpServletRequest req) {
-        req.setAttribute("Dept", DepartmentDataOperations.selectAllDept());
+            req.setAttribute("Dept", DepartmentDataOperations.selectAllDept(req.getParameter("column")));
         return "/jsp/viewDept.jsp";
     }
 }

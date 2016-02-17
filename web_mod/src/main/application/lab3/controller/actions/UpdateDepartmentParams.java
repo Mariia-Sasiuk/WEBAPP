@@ -15,7 +15,7 @@ public class UpdateDepartmentParams implements Action{
         dept.setDname(req.getParameter("dname"));
         dept.setLoc(req.getParameter("loc"));
         DepartmentDataOperations.updateDept(dept);
-        req.setAttribute("Dept", DepartmentDataOperations.selectAllDept());
+        req.setAttribute("Dept", DepartmentDataOperations.selectAllDept("1"));
         return "/jsp/viewDept.jsp";
     }
 }

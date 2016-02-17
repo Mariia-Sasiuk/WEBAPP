@@ -13,15 +13,15 @@ import java.util.Collection;
  */
 public class DepartmentDataOperations {
 
-    private static final String QUERY_SELECT_DEPT = "SELECT * FROM Dept";
+    private static final String QUERY_SELECT_DEPT = "SELECT * FROM Dept order by ";
     private static final String QUERY_INSERT_DEPT = "INSERT INTO Dept (deptno, dname, loc) VALUES (?, ?, ?)";
     private static final String QUERY_UPDATE_DEPT = "UPDATE Dept set dname = ?, loc = ? where deptno = ?";
     private static final String QUERY_DELETE_DEPT = "DELETE from Dept where deptno = ?";
-    private static String QUERY_SELECT_ONE_DEPT = "SELECT * FROM Dept WHERE deptno = ";
+    private static final String QUERY_SELECT_ONE_DEPT = "SELECT * FROM Dept WHERE deptno = ?";
 
-    public static Collection<Department> selectAllDept() {
+    public static Collection<Department> selectAllDept(String column) {
         final Collection<Department> deps = new ArrayList<Department>();
-        DataBase.executeSelect(QUERY_SELECT_DEPT, new ResultSetHandler() {
+        DataBase.executeSelect(QUERY_SELECT_DEPT + column, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rs) throws SQLException {
@@ -37,13 +37,14 @@ public class DepartmentDataOperations {
                     deps.add(department);
                 }
             }
+
         });
         return deps;
     }
 
     public static Collection<Department> selectOneDept(String deptno) {
         final Collection<Department> deps = new ArrayList<Department>();
-        DataBase.executeSelect(QUERY_SELECT_ONE_DEPT+deptno, new ResultSetHandler() {
+        DataBase.executeSelect(QUERY_SELECT_ONE_DEPT, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rs) throws SQLException {
@@ -58,6 +59,10 @@ public class DepartmentDataOperations {
 
                     deps.add(department);
                 }
+            }
+            @Override
+            public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
+                prep.setInt(1, Integer.parseInt(deptno));
             }
         });
         return deps;
@@ -65,7 +70,7 @@ public class DepartmentDataOperations {
 
     public static void insertDept(Department dept){
         DataBase.executeInsert(QUERY_INSERT_DEPT,new ResultSetHandler(){
-            public void onInsertSet(PreparedStatement prep) throws SQLException {
+            public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setInt(1,dept.getDeptno());
                 prep.setString(2,dept.getDname() );
                 prep.setString(3,dept.getLoc() );
@@ -74,7 +79,7 @@ public class DepartmentDataOperations {
     }
     public static void updateDept(Department dept){
         DataBase.executeUpdate(QUERY_UPDATE_DEPT, new ResultSetHandler() {
-            public void onInsertSet(PreparedStatement prep) throws SQLException {
+            public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setString(1, dept.getDname());
                 prep.setString(2, dept.getLoc());
                 prep.setInt(3, dept.getDeptno());
@@ -83,7 +88,7 @@ public class DepartmentDataOperations {
     }
     public static void deleteDept(int deptno){
         DataBase.executeDelete(QUERY_DELETE_DEPT,new ResultSetHandler() {
-            public void onInsertSet(PreparedStatement prep) throws SQLException {
+            public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setString(1, String.valueOf(deptno));
             }
         });

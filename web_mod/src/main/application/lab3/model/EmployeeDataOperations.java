@@ -44,7 +44,7 @@ public class EmployeeDataOperations {
 
     public static void insertEmp(Employee emp){
         DataBase.executeInsert(QUERY_INSERT_EMP,new ResultSetHandler(){
-            public void onInsertSet(PreparedStatement prep) throws SQLException {
+            public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setInt(1, emp.getEmpno());
                 prep.setString(2, emp.getEname());
                 prep.setString(3, emp.getJob());
