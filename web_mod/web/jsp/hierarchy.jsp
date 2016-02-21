@@ -1,10 +1,10 @@
-<%@ page import="application.lab3.model.Department" %>
+<%@ page import="application.lab3.model.Employee" %>
 <%@ page import="java.util.Collection" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
-  Date: 07.02.2016
-  Time: 3:04
+  Date: 20.02.2016
+  Time: 1:17
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-  <h1>Update MOD</h1>
+  <h1>BOSSES</h1>
 </header>
 <div id="recovernavig">
   <div id="navigation">
@@ -35,20 +35,16 @@
 </div>
 
 <div id="center">
-  <form>
-      <p>Please, specify following params:</p>
-    <% Collection<Department> deps = (Collection<Department>) request.getAttribute("Dept"); %>
-    <% for (Department dept : deps){%>
-      Deptno:...<input name="deptno" value="<%=dept.getDeptno()%>" readonly><br>
-      Dname:....<input name="dname" value="<%=dept.getDname()%>"><br>
-      Loc:......<input name="loc" value="<%=dept.getLoc()%>"><br>
-    <%
-      }
-    %>
-      <button type="submit" name="action" value="updDeptParams">UPDATE</button>
-    <button type="submit" name="action" value="delDept">DELETE</button>
-
-  </form>
+  <table>
+  <% Collection<Employee> emps = (Collection<Employee>) request.getAttribute("Emp"); %>
+  <% for (Employee emp : emps){%>
+  <tr><td><a href="Actions?action=updEmp&id=<%=emp.getEmpno()%>"><%=emp.getEmpno()%></a></td>
+    <td><%=emp.getEname()%></td>
+  </tr>
+  <%
+    }
+  %>
+  </table>
 </div>
 
 </div>

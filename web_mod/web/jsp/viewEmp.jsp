@@ -45,17 +45,20 @@
       <th>Sal</th>
       <th>Comm</th>
       <th>Deptno</th>
+        <th>ierarhia</th>
     </tr>
       <% Collection<Employee> emps = (Collection<Employee>) request.getAttribute("Emp"); %>
       <% for (Employee emp : emps){%>
           <tr><td><%=emp.getEmpno()%></td>
-                  <td><%=emp.getEname()%></td>
-                  <td><%=emp.getJob()%></td>
-                  <td><%=emp.getMgr()%></td>
-                  <td><%=emp.getHiredate()%></td>
-                  <td><%=emp.getSal()%></td>
-                  <td><%=emp.getComm()%></td>
-                  <td><%=emp.getDeptno()%></td>
+              <td><%=emp.getEname()%></td>
+              <td><%=emp.getJob()%></td>
+              <td><%=emp.getMgr()%></td>
+              <td><%=emp.getHiredate()%></td>
+              <td><%=emp.getSal()%></td>
+              <td><%=emp.getComm()%></td>
+              <td><%=emp.getDeptno()%></td>
+              <td><a href="Actions?action=viewBoss&id=<%=emp.getEmpno()%>">boss</a>
+                  <a href="Actions?action=viewWorker&id=<%=emp.getEmpno()%>">work</a></td>
                   </tr>
   <%
           }

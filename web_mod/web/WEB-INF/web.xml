@@ -48,6 +48,10 @@
             <param-name>delDept</param-name>
             <param-value>application.lab3.controller.actions.DeleteDepartment</param-value>
         </init-param>
+        <init-param>
+            <param-name>viewBoss</param-name>
+            <param-value>application.lab3.controller.actions.ViewBosses</param-value>
+        </init-param>
 
     </servlet>
 
