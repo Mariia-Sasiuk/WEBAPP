@@ -49,6 +49,18 @@
             <param-value>application.lab3.controller.actions.DeleteDepartment</param-value>
         </init-param>
         <init-param>
+            <param-name>updEmp</param-name>
+            <param-value>application.lab3.controller.actions.UpdateEmployee</param-value>
+        </init-param>
+        <init-param>
+            <param-name>updEmpParams</param-name>
+            <param-value>application.lab3.controller.actions.UpdateEmployeeParams</param-value>
+        </init-param>
+        <init-param>
+            <param-name>delEmp</param-name>
+            <param-value>application.lab3.controller.actions.DeleteEmployee</param-value>
+        </init-param>
+        <init-param>
             <param-name>viewBoss</param-name>
             <param-value>application.lab3.controller.actions.ViewBosses</param-value>
         </init-param>

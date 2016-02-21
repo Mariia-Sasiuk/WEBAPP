@@ -22,7 +22,7 @@
       <li class="dropdown-top"><a href="Actions?action=edit">Edit</a></li>
       <li class="dropdown-top"><a href="#">Tables</a>
         <ul class="dropdown-inside">
-          <li><a href="Actions?action=empView">Emp</a></li>
+          <li><a href="Actions?action=empView&column=1">Emp</a></li>
           <li><a href="Actions?action=deptView&column=1">Dept</a></li>
         </ul>
       </li>

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class ViewEmployees implements Action {
     public String execute(HttpServletRequest req) {
-        req.setAttribute("Emp", EmployeeDataOperations.selectAllEmp());
+        req.setAttribute("Emp", EmployeeDataOperations.selectAllEmp(req.getParameter("column")));
         return "/jsp/viewEmp.jsp";
     }
 }

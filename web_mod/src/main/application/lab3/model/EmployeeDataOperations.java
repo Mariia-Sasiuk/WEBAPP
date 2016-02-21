@@ -13,16 +13,26 @@ import java.util.Collection;
  */
 public class EmployeeDataOperations {
 
-    private static final String QUERY_SELECT_EMP = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0)  FROM  emp";
+    private static final String QUERY_SELECT_EMP = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0)  FROM  emp order by ";
+    private static final String QUERY_SELECT_ONE_EMP = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0)  FROM  emp WHERE empno = ?";
     private static final String QUERY_INSERT_EMP = "INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String QUERY_DELETE_EMP = "DELETE FROM emp WHERE empno = ?";
+    private static final String QUERY_UPDATE_EMP = "UPDATE emp SET ename = ?, " +
+                                                        "job = ?, " +
+                                                        "mgr = ?, " +
+                                                        "hiredate = ?, " +
+                                                        "sal = ?, " +
+                                                        "comm = ?, " +
+                                                        "deptno = ? " +
+                                                        "WHERE empno = ?";
     private static final String QUERY_SELECT_BOSS = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0) \n" +
                                                     "      FROM emp \n" +
                                                     "      CONNECT BY PRIOR mgr=empno\n" +
                                                     "      START WITH empno= ?";
 
-    public static Collection<Employee> selectAllEmp() {
+    public static Collection<Employee> selectAllEmp(String column) {
         final Collection<Employee> emps = new ArrayList<Employee>();
-        DataBase.executeSelect(QUERY_SELECT_EMP, new ResultSetHandler() {
+        DataBase.executeSelect(QUERY_SELECT_EMP + column, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rs) throws SQLException {
@@ -46,7 +56,38 @@ public class EmployeeDataOperations {
         return emps;
     }
 
-    public static Collection<Employee> selectAllEmp(String empno) {
+    public static Collection<Employee> selectOneEmp(String empno) {
+        final Collection<Employee> emps = new ArrayList<Employee>();
+        DataBase.executeSelect(QUERY_SELECT_ONE_EMP, new ResultSetHandler() {
+
+            @Override
+            public void onResultSet(ResultSet rs) throws SQLException {
+                ResultSetMetaData rsmd = rs.getMetaData();
+                while (rs.next()) {
+                    Employee employee = new Employee();
+                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                        if (i == 1) employee.setEmpno(Integer.parseInt(rs.getString(i)));
+                        else if (i == 2) employee.setEname(rs.getString(i));
+                        else if (i == 3) employee.setJob(rs.getString(i));
+                        else if (i == 4) employee.setMgr(Integer.parseInt(rs.getString(i)));
+                        else if (i == 5) employee.setHiredate(rs.getDate(i));
+                        else if (i == 6) employee.setSal(Double.parseDouble(rs.getString(i)));
+                        else if (i == 7) employee.setComm(Double.parseDouble(rs.getString(i)));
+                        else employee.setDeptno(Integer.parseInt(rs.getString(i)));
+                    }
+                    emps.add(employee);
+                }
+            }
+            @Override
+            public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
+                prep.setInt(1, Integer.parseInt(empno));
+            }
+
+        });
+        return emps;
+    }
+
+    public static Collection<Employee> selectBosses(String empno) {
         final Collection<Employee> emps = new ArrayList<Employee>();
         DataBase.executeSelect(QUERY_SELECT_BOSS, new ResultSetHandler() {
 
@@ -91,6 +132,25 @@ public class EmployeeDataOperations {
         });
     }
 
-    public void updateEmp(){}
-    public void deleteEmp(){}
+    public static void updateEmp(Employee emp){
+        DataBase.executeUpdate(QUERY_UPDATE_EMP, new ResultSetHandler() {
+            public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
+                prep.setString(1, emp.getEname());
+                prep.setString(2, emp.getJob());
+                prep.setInt(3, emp.getMgr());
+                prep.setDate(4, emp.getHiredate());
+                prep.setDouble(5, emp.getSal());
+                prep.setDouble(6, emp.getComm());
+                prep.setInt(7, emp.getDeptno());
+                prep.setInt(8, emp.getEmpno());
+            }
+        });
+    }
+    public static void deleteEmp(int empno){
+            DataBase.executeDelete(QUERY_DELETE_EMP,new ResultSetHandler() {
+                public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
+                    prep.setString(1, String.valueOf(empno));
+                }
+            });
+    }
 }

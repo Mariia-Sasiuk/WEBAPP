@@ -11,6 +11,6 @@ public class UpdateDepartment implements Action {
     @Override
     public String execute(HttpServletRequest req) {
         req.setAttribute("Dept", DepartmentDataOperations.selectOneDept(req.getParameter("id")));
-        return "/jsp/update.jsp";
+        return "/jsp/updateDept.jsp";
     }
 }

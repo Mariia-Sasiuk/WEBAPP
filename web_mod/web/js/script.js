@@ -18,6 +18,16 @@ $(document).ready(function () {
 	$("#datepicker").datepicker({dateFormat:"yy-mm-dd"
 	});
 });
-
-//,beforeShow: function(){
-//	$(".ui-datepicker").css('font-size', 12)}
+//function MyFunction(){
+//	name=/[A-z]{1,5}/;
+//	job=/[A-z]{1,10}[0-9]{0,2}/;
+//	mgr=/[1-9]{1}[0-9]{3}/;
+//
+//	if (name.exec(document.getElementById('name').value)&&
+//		job.exec(document.getElementById('job').value)&&
+//		mgr.exec(document.getElementById('mgr').value)) {
+//		return true;
+//	}
+//	else {alert("qwerrttttt");return false;};
+//
+//};

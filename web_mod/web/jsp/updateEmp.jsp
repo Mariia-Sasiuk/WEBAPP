@@ -1,3 +1,5 @@
+<%@ page import="application.lab3.model.Employee" %>
+<%@ page import="java.util.Collection" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mari
@@ -27,7 +29,7 @@
       <li class="dropdown-top"><a href="Actions?action=edit">Edit</a></li>
       <li class="dropdown-top"><a href="#">Tables</a>
         <ul class="dropdown-inside">
-          <li><a href="Actions?action=empView&column=1">Emp</a></li>
+            <li><a href="Actions?action=empView&column=1">Emp</a></li>
           <li><a href="Actions?action=deptView&column=1">Dept</a></li>
         </ul>
       </li>
@@ -38,34 +40,24 @@
 </div>
 
 <div id="center">
-  <form action="Actions">
-    <input type="checkbox" id="addEmp" name="addEmp" value="addEmp">Add new employee<br>
-    <div id="vismoreEmp">
-      <p>Please, specify following params:</p>
-      <p>Empno:....<input name="empno" ><br></p>
-      <p>Ename:....<input name="ename"  ><br></p>
-      <p>Job:......<input name="job" ><br></p>
-      <p>MGR:......<input name="mgr" ><br></p>
-      <p>Hiredate:.<input type="text" name="date" id="datepicker"><br></p>
-      <p>Sal:......<input name="sal" value="500"><br></p>
-      <p>Comm:.....<input name="comm" value="0"><br></p>
-      <p>Deptno:...<input name="deptno" ><br></p>
-      <input type="hidden" name="action" value="insEmp" >
-      <button type="submit" name="addEmp" >ADD</button>
-      <%--<button type="submit" name="addEmp" onclick="return MyFunction()">ADD</button>--%>
-    </div>
-  </form>
   <form>
-    <input type="checkbox" id="addDept" name="addDept" value="addDept">Add new department<br>
-    <div id="vismoreDept">
       <p>Please, specify following params:</p>
-      Deptno:...<input name="deptno" ><br>
-      Dname:....<input name="dname" ><br>
-      Loc:......<input name="loc" ><br>
-      <input type="hidden" name="action" value="insDept">
-      <button type="submit" name="addDept">ADD</button>
+      <% Collection<Employee> emps = (Collection<Employee>) request.getAttribute("Emp"); %>
+      <% for (Employee emp : emps){%>
+      <p>Empno:....<input name="empno" value="<%=emp.getEmpno()%>" readonly><br></p>
+      <p>Ename:....<input name="ename" value="<%=emp.getEname()%>" ><br></p>
+      <p>Job:......<input name="job" value="<%=emp.getJob()%>"><br></p>
+      <p>MGR:......<input name="mgr" value="<%=emp.getMgr()%>"><br></p>
+      <p>Hiredate:.<input type="text" name="date" id="datepicker" value="<%=emp.getHiredate()%>"><br></p>
+      <p>Sal:......<input name="sal" value="<%=emp.getSal()%>"><br></p>
+      <p>Comm:.....<input name="comm" value="<%=emp.getComm()%>"><br></p>
+      <p>Deptno:...<input name="deptno" value="<%=emp.getDeptno()%>"><br></p>
+    <%
+      }
+    %>
+    <button type="submit" name="action" value="updEmpParams">UPDATE</button>
+    <button type="submit" name="action" value="delEmp">DELETE</button>
 
-    </div>
   </form>
 </div>
 

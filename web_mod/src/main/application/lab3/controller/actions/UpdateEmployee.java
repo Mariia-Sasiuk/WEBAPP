@@ -5,12 +5,12 @@ import application.lab3.model.EmployeeDataOperations;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Mari on 20.02.2016.
+ * Created by Mari on 21.02.2016.
  */
-public class ViewBosses implements Action {
+public class UpdateEmployee implements Action {
     @Override
     public String execute(HttpServletRequest req) {
-        req.setAttribute("Emp", EmployeeDataOperations.selectBosses(req.getParameter("id")));
-        return "/jsp/hierarchy.jsp";
+        req.setAttribute("Emp", EmployeeDataOperations.selectOneEmp(req.getParameter("id")));
+        return "/jsp/updateEmp.jsp";
     }
 }

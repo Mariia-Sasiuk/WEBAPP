@@ -24,7 +24,7 @@
       <li class="dropdown-top"><a href="Actions?action=edit">Edit</a></li>
       <li class="dropdown-top"><a href="#">Tables</a>
         <ul class="dropdown-inside">
-          <li><a href="Actions?action=empView">Emp</a></li>
+          <li><a href="Actions?action=empView&column=1">Emp</a></li>
             <li><a href="Actions?action=deptView&column=1">Dept</a></li>
         </ul>
       </li>
@@ -37,19 +37,19 @@
 <div id="center">
   <table>
     <tr>
-      <th>Empno</th>
-      <th>Ename</th>
-      <th>Job</th>
-      <th>MGR</th>
-      <th>Hiredate</th>
-      <th>Sal</th>
-      <th>Comm</th>
-      <th>Deptno</th>
-        <th>ierarhia</th>
+      <th><a href="Actions?action=empView&column=1">Empno</a></th>
+      <th><a href="Actions?action=empView&column=2">Ename</a></th>
+      <th><a href="Actions?action=empView&column=3">Job</a></th>
+      <th><a href="Actions?action=empView&column=4">MGR</a></th>
+      <th><a href="Actions?action=empView&column=5">Hiredate</a></th>
+      <th><a href="Actions?action=empView&column=6">Sal</a></th>
+      <th><a href="Actions?action=empView&column=7">Comm</a></th>
+      <th><a href="Actions?action=empView&column=8">Deptno</a></th>
+        <th>hierarchy</th>
     </tr>
       <% Collection<Employee> emps = (Collection<Employee>) request.getAttribute("Emp"); %>
       <% for (Employee emp : emps){%>
-          <tr><td><%=emp.getEmpno()%></td>
+          <tr><td><a href="Actions?action=updEmp&id=<%=emp.getEmpno()%>"><%=emp.getEmpno()%></a></td>
               <td><%=emp.getEname()%></td>
               <td><%=emp.getJob()%></td>
               <td><%=emp.getMgr()%></td>
@@ -58,7 +58,7 @@
               <td><%=emp.getComm()%></td>
               <td><%=emp.getDeptno()%></td>
               <td><a href="Actions?action=viewBoss&id=<%=emp.getEmpno()%>">boss</a>
-                  <a href="Actions?action=viewWorker&id=<%=emp.getEmpno()%>">work</a></td>
+                  <%--<a href="Actions?action=viewWorker&id=<%=emp.getEmpno()%>">work</a>--%></td>
                   </tr>
   <%
           }
