@@ -1,0 +1,4 @@
+language: java
+
+notifications: 
+slack: jclubteam:CENQd2H6tfenTHyNqDh4OpLU
