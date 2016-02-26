@@ -19,8 +19,8 @@ public class Main extends HttpServlet {
     public void init(ServletConfig var1) throws ServletException{
 //        LOG.info("Servlet started its work");
         try {
-            Enumeration<String> e = var1.getInitParameterNames();
-            for(String param : list(e) )
+//            Enumeration<String> e = var1.getInitParameterNames();
+            for(String param : list((Enumeration<String>)var1.getInitParameterNames()) )
                 actions.put(param, var1.getInitParameter(param));
 
         } catch (   ClassNotFoundException |
