@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Mari on 20.02.2016.
  */
 public class ViewBosses implements Action {
-    @Override
+    EmployeeDataOperations dataOperations = new EmployeeDataOperations();
     public String execute(HttpServletRequest req) {
-        req.setAttribute("Emp", EmployeeDataOperations.selectBosses(req.getParameter("id")));
+        req.setAttribute("Emp", dataOperations.selectBosses(req.getParameter("id")));
         return "/jsp/hierarchy.jsp";
     }
 }

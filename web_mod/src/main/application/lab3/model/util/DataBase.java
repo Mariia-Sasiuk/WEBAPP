@@ -5,16 +5,21 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
 
-//TODO:remove static(!) and make lookup in initialization
+//TODO:make lookup in initialization
 public class DataBase {
 
-private static DataSource lookupmyDB() throws NamingException {
-    InitialContext context = new InitialContext();
-//    DataSource dataSource = (DataSource) context.lookup("studentDB");
-    return (DataSource) context.lookup("studentDB");
-}
+//private final DataSource dataSourceLookup;
+//
+//    public DataBase() throws NamingException {
+//        dataSourceLookup = lookupmyDB();
+//    }
 
-    public static void executeSelect(String query, ResultSetHandler handler ){
+    private DataSource lookupmyDB() throws NamingException {
+        InitialContext context = new InitialContext();
+        return(DataSource) context.lookup("studentDB");
+    }
+
+    public void executeSelect(String query, ResultSetHandler handler ){
         try(Connection connection = lookupmyDB().getConnection();
             PreparedStatement prep = connection.prepareStatement(query)){
             handler.prepStmntBuilder(prep);
@@ -31,7 +36,7 @@ private static DataSource lookupmyDB() throws NamingException {
 
 
 
-        public static void executeInsert(String query, ResultSetHandler handler){
+        public  void executeInsert(String query, ResultSetHandler handler){
             try(Connection connection = lookupmyDB().getConnection();
                 PreparedStatement prep = connection.prepareStatement(query))
             {
@@ -43,7 +48,7 @@ private static DataSource lookupmyDB() throws NamingException {
                 e.printStackTrace();
             }
         }
-        public static void executeUpdate(String query, ResultSetHandler handler){
+        public  void executeUpdate(String query, ResultSetHandler handler){
             try(Connection connection = lookupmyDB().getConnection();
                 PreparedStatement prep = connection.prepareStatement(query))
             {
@@ -55,7 +60,7 @@ private static DataSource lookupmyDB() throws NamingException {
                 e.printStackTrace();
             }
         }
-        public static void executeDelete(String query, ResultSetHandler handler){
+        public  void executeDelete(String query, ResultSetHandler handler){
             try(Connection connection = lookupmyDB().getConnection();
                 PreparedStatement prep = connection.prepareStatement(query))
             {

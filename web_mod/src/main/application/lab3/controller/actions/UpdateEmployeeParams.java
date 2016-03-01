@@ -10,7 +10,7 @@ import java.sql.Date;
  * Created by Mari on 21.02.2016.
  */
 public class UpdateEmployeeParams implements Action {
-    @Override
+    EmployeeDataOperations dataOperations = new EmployeeDataOperations();
     public String execute(HttpServletRequest req) {
         Employee emp = new Employee();
         emp.setEmpno(Integer.parseInt(req.getParameter("empno")));
@@ -21,8 +21,8 @@ public class UpdateEmployeeParams implements Action {
         emp.setSal(Double.parseDouble(req.getParameter("sal")));
         emp.setComm(Double.parseDouble(req.getParameter("comm")));
         emp.setDeptno(Integer.parseInt(req.getParameter("deptno")));
-        EmployeeDataOperations.updateEmp(emp);
-        req.setAttribute("Emp", EmployeeDataOperations.selectAllEmp("1"));
+        dataOperations.updateEmp(emp);
+        req.setAttribute("Emp", dataOperations.selectAllEmp("1"));
         return "/jsp/viewEmp.jsp";
     }
 }

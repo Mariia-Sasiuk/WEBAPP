@@ -28,9 +28,11 @@ public class EmployeeDataOperations {
                                                     "      CONNECT BY PRIOR mgr=empno\n" +
                                                     "      START WITH empno= ?";
 
-    public static Collection<Employee> selectAllEmp(String column) {
+    DataBase dbexecution = new DataBase();
+
+    public  Collection<Employee> selectAllEmp(String column) {
         final Collection<Employee> emps = new ArrayList<Employee>();
-        DataBase.executeSelect(QUERY_SELECT_EMP + column, new ResultSetHandler() {
+        dbexecution.executeSelect(QUERY_SELECT_EMP + column, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rsltSet) throws SQLException {
@@ -52,9 +54,9 @@ public class EmployeeDataOperations {
         return emps;
     }
 
-    public static Collection<Employee> selectOneEmp(String empno) {
+    public  Collection<Employee> selectOneEmp(String empno) {
         final Collection<Employee> emps = new ArrayList<Employee>();
-        DataBase.executeSelect(QUERY_SELECT_ONE_EMP, new ResultSetHandler() {
+        dbexecution.executeSelect(QUERY_SELECT_ONE_EMP, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rsltSet) throws SQLException {
@@ -81,9 +83,9 @@ public class EmployeeDataOperations {
         return emps;
     }
 
-    public static Collection<Employee> selectBosses(String empno) {
+    public  Collection<Employee> selectBosses(String empno) {
         final Collection<Employee> emps = new ArrayList<Employee>();
-        DataBase.executeSelect(QUERY_SELECT_BOSS, new ResultSetHandler() {
+        dbexecution.executeSelect(QUERY_SELECT_BOSS, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rsltSet) throws SQLException {
@@ -108,8 +110,8 @@ public class EmployeeDataOperations {
         return emps;
     }
 
-    public static void insertEmp(Employee emp){
-        DataBase.executeInsert(QUERY_INSERT_EMP,new ResultSetHandler(){
+    public  void insertEmp(Employee emp){
+        dbexecution.executeInsert(QUERY_INSERT_EMP,new ResultSetHandler(){
             public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setInt(1, emp.getEmpno());
                 prep.setString(2, emp.getEname());
@@ -124,8 +126,8 @@ public class EmployeeDataOperations {
         });
     }
 
-    public static void updateEmp(Employee emp){
-        DataBase.executeUpdate(QUERY_UPDATE_EMP, new ResultSetHandler() {
+    public  void updateEmp(Employee emp){
+        dbexecution.executeUpdate(QUERY_UPDATE_EMP, new ResultSetHandler() {
             public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setString(1, emp.getEname());
                 prep.setString(2, emp.getJob());
@@ -138,8 +140,8 @@ public class EmployeeDataOperations {
             }
         });
     }
-    public static void deleteEmp(int empno){
-            DataBase.executeDelete(QUERY_DELETE_EMP,new ResultSetHandler() {
+    public  void deleteEmp(int empno){
+        dbexecution.executeDelete(QUERY_DELETE_EMP,new ResultSetHandler() {
                 public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                     prep.setString(1, String.valueOf(empno));
                 }

@@ -10,6 +10,7 @@ import java.sql.Date;
  * Created by Mari on 14.01.2016.
  */
 public class NewEmployee implements Action {
+    EmployeeDataOperations dataOperations = new EmployeeDataOperations();
     public String execute(HttpServletRequest req) {
         Employee emp = new Employee();
         emp.setEmpno(Integer.parseInt(req.getParameter("empno")));
@@ -20,7 +21,7 @@ public class NewEmployee implements Action {
         emp.setSal(Double.parseDouble(req.getParameter("sal")));
         emp.setComm(Double.parseDouble(req.getParameter("comm")));
         emp.setDeptno(Integer.parseInt(req.getParameter("deptno")));
-        EmployeeDataOperations.insertEmp(emp);
+        dataOperations.insertEmp(emp);
         return "/jsp/edit.jsp";
     }
 }

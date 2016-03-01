@@ -17,9 +17,11 @@ public class DepartmentDataOperations {
     private static final String QUERY_DELETE_DEPT = "DELETE from Dept where deptno = ?";
     private static final String QUERY_SELECT_ONE_DEPT = "SELECT * FROM Dept WHERE deptno = ?";
 
-    public static Collection<Department> selectAllDept(String column) {
+    DataBase dbexecutor = new DataBase();
+
+    public  Collection<Department> selectAllDept(String column) {
         final Collection<Department> deps = new ArrayList<Department>();
-        DataBase.executeSelect(QUERY_SELECT_DEPT + column, new ResultSetHandler() {
+        dbexecutor.executeSelect(QUERY_SELECT_DEPT + column, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rsltSet) throws SQLException {
@@ -40,9 +42,9 @@ public class DepartmentDataOperations {
         return deps;
     }
 
-    public static Collection<Department> selectOneDept(String deptno) {
+    public  Collection<Department> selectOneDept(String deptno) {
         final Collection<Department> deps = new ArrayList<Department>();
-        DataBase.executeSelect(QUERY_SELECT_ONE_DEPT, new ResultSetHandler() {
+        dbexecutor.executeSelect(QUERY_SELECT_ONE_DEPT, new ResultSetHandler() {
 
             @Override
             public void onResultSet(ResultSet rsltSet) throws SQLException {
@@ -66,8 +68,8 @@ public class DepartmentDataOperations {
         return deps;
     }
 
-    public static void insertDept(Department dept){
-        DataBase.executeInsert(QUERY_INSERT_DEPT,new ResultSetHandler(){
+    public  void insertDept(Department dept){
+        dbexecutor.executeInsert(QUERY_INSERT_DEPT,new ResultSetHandler(){
             public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setInt(1,dept.getDeptno());
                 prep.setString(2,dept.getDname() );
@@ -75,8 +77,8 @@ public class DepartmentDataOperations {
             }
         });
     }
-    public static void updateDept(Department dept){
-        DataBase.executeUpdate(QUERY_UPDATE_DEPT, new ResultSetHandler() {
+    public  void updateDept(Department dept){
+        dbexecutor.executeUpdate(QUERY_UPDATE_DEPT, new ResultSetHandler() {
             public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setString(1, dept.getDname());
                 prep.setString(2, dept.getLoc());
@@ -84,8 +86,8 @@ public class DepartmentDataOperations {
             }
         });
     }
-    public static void deleteDept(int deptno){
-        DataBase.executeDelete(QUERY_DELETE_DEPT,new ResultSetHandler() {
+    public  void deleteDept(int deptno){
+        dbexecutor.executeDelete(QUERY_DELETE_DEPT,new ResultSetHandler() {
             public void prepStmntBuilder(PreparedStatement prep) throws SQLException {
                 prep.setString(1, String.valueOf(deptno));
             }
