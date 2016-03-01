@@ -1,6 +1,6 @@
 language: java
 jdk:
  - oraclejdk8
-script: mvn clean pmd:check package cobertura:check -X
+script: mvn clean pmd:check package -X
 notifications:
   slack: jclubteam:QU7qAi2zu1vZuhbSzKLwrXFI
