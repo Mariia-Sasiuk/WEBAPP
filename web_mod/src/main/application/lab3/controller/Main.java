@@ -14,7 +14,7 @@ import static java.util.Collections.list;
 
 public class Main extends HttpServlet {
 //    final Logger LOG = LoggerFactory.getLogger(Main.class);
-    private ActionHandler actions = new ActionHandler();
+    private final ActionHandler actions = new ActionHandler();
 
     public void init(ServletConfig var1) throws ServletException{
 //        LOG.info("Servlet started its work");

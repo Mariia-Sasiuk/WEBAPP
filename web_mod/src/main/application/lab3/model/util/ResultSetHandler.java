@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 
 public class ResultSetHandler {
-    public void onResultSet(ResultSet rs) throws SQLException {
+    public void onResultSet(ResultSet rsltSet) throws SQLException {
 
     }
     public void prepStmntBuilder(PreparedStatement prep) throws SQLException {

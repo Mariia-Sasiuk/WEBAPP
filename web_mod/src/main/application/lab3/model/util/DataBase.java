@@ -5,22 +5,22 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
 
-
+//TODO:remove static(!) and make lookup in initialization
 public class DataBase {
 
 private static DataSource lookupmyDB() throws NamingException {
     InitialContext context = new InitialContext();
-    DataSource dataSource = (DataSource) context.lookup("studentDB");
-    return dataSource;
+//    DataSource dataSource = (DataSource) context.lookup("studentDB");
+    return (DataSource) context.lookup("studentDB");
 }
 
     public static void executeSelect(String query, ResultSetHandler handler ){
         try(Connection connection = lookupmyDB().getConnection();
             PreparedStatement prep = connection.prepareStatement(query)){
             handler.prepStmntBuilder(prep);
-            try(ResultSet rs = prep.executeQuery())
+            try(ResultSet rsltSet = prep.executeQuery())
             {
-                handler.onResultSet(rs);
+                handler.onResultSet(rsltSet);
             }
         }
         catch (SQLException | NamingException e)

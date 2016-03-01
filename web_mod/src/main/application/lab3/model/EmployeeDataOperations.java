@@ -2,8 +2,6 @@ package application.lab3.model;
 
 import application.lab3.model.util.DataBase;
 import application.lab3.model.util.ResultSetHandler;
-
-import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,20 +33,18 @@ public class EmployeeDataOperations {
         DataBase.executeSelect(QUERY_SELECT_EMP + column, new ResultSetHandler() {
 
             @Override
-            public void onResultSet(ResultSet rs) throws SQLException {
-                ResultSetMetaData rsmd = rs.getMetaData();
-                while (rs.next()) {
+            public void onResultSet(ResultSet rsltSet) throws SQLException {
+
+                while (rsltSet.next()) {
                     Employee employee = new Employee();
-                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        if (i == 1) employee.setEmpno(Integer.parseInt(rs.getString(i)));
-                        else if (i == 2) employee.setEname(rs.getString(i));
-                        else if (i == 3) employee.setJob(rs.getString(i));
-                        else if (i == 4) employee.setMgr(Integer.parseInt(rs.getString(i)));
-                        else if (i == 5) employee.setHiredate(rs.getDate(i));
-                        else if (i == 6) employee.setSal(Double.parseDouble(rs.getString(i)));
-                        else if (i == 7) employee.setComm(Double.parseDouble(rs.getString(i)));
-                        else employee.setDeptno(Integer.parseInt(rs.getString(i)));
-                    }
+                    employee.setEmpno(Integer.parseInt(rsltSet.getString("empno")));
+                    employee.setEname(rsltSet.getString("ename"));
+                    employee.setJob(rsltSet.getString("job"));
+                    employee.setMgr(Integer.parseInt(rsltSet.getString("mgr")));
+                    employee.setHiredate(rsltSet.getDate("hiredate"));
+                    employee.setSal(Double.parseDouble(rsltSet.getString("sal")));
+                    employee.setComm(Double.parseDouble(rsltSet.getString("comm")));
+                    employee.setDeptno(Integer.parseInt(rsltSet.getString("deptno")));
                     emps.add(employee);
                 }
             }
@@ -61,20 +57,18 @@ public class EmployeeDataOperations {
         DataBase.executeSelect(QUERY_SELECT_ONE_EMP, new ResultSetHandler() {
 
             @Override
-            public void onResultSet(ResultSet rs) throws SQLException {
-                ResultSetMetaData rsmd = rs.getMetaData();
-                while (rs.next()) {
+            public void onResultSet(ResultSet rsltSet) throws SQLException {
+
+                while (rsltSet.next()) {
                     Employee employee = new Employee();
-                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        if (i == 1) employee.setEmpno(Integer.parseInt(rs.getString(i)));
-                        else if (i == 2) employee.setEname(rs.getString(i));
-                        else if (i == 3) employee.setJob(rs.getString(i));
-                        else if (i == 4) employee.setMgr(Integer.parseInt(rs.getString(i)));
-                        else if (i == 5) employee.setHiredate(rs.getDate(i));
-                        else if (i == 6) employee.setSal(Double.parseDouble(rs.getString(i)));
-                        else if (i == 7) employee.setComm(Double.parseDouble(rs.getString(i)));
-                        else employee.setDeptno(Integer.parseInt(rs.getString(i)));
-                    }
+                    employee.setEmpno(Integer.parseInt(rsltSet.getString("empno")));
+                    employee.setEname(rsltSet.getString("ename"));
+                    employee.setJob(rsltSet.getString("job"));
+                    employee.setMgr(Integer.parseInt(rsltSet.getString("mgr")));
+                    employee.setHiredate(rsltSet.getDate("hiredate"));
+                    employee.setSal(Double.parseDouble(rsltSet.getString("sal")));
+                    employee.setComm(Double.parseDouble(rsltSet.getString("comm")));
+                    employee.setDeptno(Integer.parseInt(rsltSet.getString("deptno")));
                     emps.add(employee);
                 }
             }
@@ -92,20 +86,18 @@ public class EmployeeDataOperations {
         DataBase.executeSelect(QUERY_SELECT_BOSS, new ResultSetHandler() {
 
             @Override
-            public void onResultSet(ResultSet rs) throws SQLException {
-                ResultSetMetaData rsmd = rs.getMetaData();
-                while (rs.next()) {
+            public void onResultSet(ResultSet rsltSet) throws SQLException {
+
+                while (rsltSet.next()) {
                     Employee employee = new Employee();
-                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        if (i == 1) employee.setEmpno(Integer.parseInt(rs.getString(i)));
-                        else if (i == 2) employee.setEname(rs.getString(i));
-                        else if (i == 3) employee.setJob(rs.getString(i));
-                        else if (i == 4) employee.setMgr(Integer.parseInt(rs.getString(i)));
-                        else if (i == 5) employee.setHiredate(rs.getDate(i));
-                        else if (i == 6) employee.setSal(Double.parseDouble(rs.getString(i)));
-                        else if (i == 7) employee.setComm(Double.parseDouble(rs.getString(i)));
-                        else employee.setDeptno(Integer.parseInt(rs.getString(i)));
-                    }
+                    employee.setEmpno(Integer.parseInt(rsltSet.getString("empno")));
+                    employee.setEname(rsltSet.getString("ename"));
+                    employee.setJob(rsltSet.getString("job"));
+                    employee.setMgr(Integer.parseInt(rsltSet.getString("mgr")));
+                    employee.setHiredate(rsltSet.getDate("hiredate"));
+                    employee.setSal(Double.parseDouble(rsltSet.getString("sal")));
+                    employee.setComm(Double.parseDouble(rsltSet.getString("comm")));
+                    employee.setDeptno(Integer.parseInt(rsltSet.getString("deptno")));
                     emps.add(employee);
                 }
             }

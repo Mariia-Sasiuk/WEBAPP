@@ -2,8 +2,6 @@ package application.lab3.model;
 
 import application.lab3.model.util.DataBase;
 import application.lab3.model.util.ResultSetHandler;
-
-import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,14 +22,14 @@ public class DepartmentDataOperations {
         DataBase.executeSelect(QUERY_SELECT_DEPT + column, new ResultSetHandler() {
 
             @Override
-            public void onResultSet(ResultSet rs) throws SQLException {
-                ResultSetMetaData rsmd = rs.getMetaData();
-                while (rs.next()) {
+            public void onResultSet(ResultSet rsltSet) throws SQLException {
+                ResultSetMetaData rsmd = rsltSet.getMetaData();
+                while (rsltSet.next()) {
                     Department department = new Department();
                     for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        if (i==1) department.setDeptno(Integer.parseInt(rs.getString(i)));
-                        else if (i==2) department.setDname(rs.getString(i));
-                        else department.setLoc(rs.getString(i));
+                        if (i==1) department.setDeptno(Integer.parseInt(rsltSet.getString(i)));
+                        else if (i==2) department.setDname(rsltSet.getString(i));
+                        else department.setLoc(rsltSet.getString(i));
                     }
 
                     deps.add(department);
@@ -47,14 +45,14 @@ public class DepartmentDataOperations {
         DataBase.executeSelect(QUERY_SELECT_ONE_DEPT, new ResultSetHandler() {
 
             @Override
-            public void onResultSet(ResultSet rs) throws SQLException {
-                ResultSetMetaData rsmd = rs.getMetaData();
-                while (rs.next()) {
+            public void onResultSet(ResultSet rsltSet) throws SQLException {
+                ResultSetMetaData rsmd = rsltSet.getMetaData();
+                while (rsltSet.next()) {
                     Department department = new Department();
                     for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        if (i==1) department.setDeptno(Integer.parseInt(rs.getString(i)));
-                        else if (i==2) department.setDname(rs.getString(i));
-                        else department.setLoc(rs.getString(i));
+                        if (i==1) department.setDeptno(Integer.parseInt(rsltSet.getString(i)));
+                        else if (i==2) department.setDname(rsltSet.getString(i));
+                        else department.setLoc(rsltSet.getString(i));
                     }
 
                     deps.add(department);

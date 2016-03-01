@@ -79,4 +79,5 @@ public class Employee {
     public void setDeptno(int deptno) {
         this.deptno = deptno;
     }
+
 }
