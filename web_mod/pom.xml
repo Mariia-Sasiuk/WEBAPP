@@ -58,7 +58,7 @@
                 <execution>
                     <phase>compile</phase>
                     <goals>
-                        <goal>check</goal>
+                        <goal>pmd</goal>
                     </goals>
                 </execution>
             </executions>

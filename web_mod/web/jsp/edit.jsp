@@ -41,15 +41,26 @@
   <form action="Actions">
     <input type="checkbox" id="addEmp" name="addEmp" value="addEmp">Add new employee<br>
     <div id="vismoreEmp">
-      <p>Please, specify following params:</p>
-      <p>Empno:....<input name="empno" ><br></p>
-      <p>Ename:....<input name="ename"  ><br></p>
-      <p>Job:......<input name="job" ><br></p>
-      <p>MGR:......<input name="mgr" ><br></p>
-      <p>Hiredate:.<input type="text" name="date" id="datepicker"><br></p>
-      <p>Sal:......<input name="sal" value="500"><br></p>
-      <p>Comm:.....<input name="comm" value="0"><br></p>
-      <p>Deptno:...<input name="deptno" ><br></p>
+      <%--<p>Please, specify following params:</p>--%>
+      <table id="tbl" >
+        <caption>Please, specify following params:</caption>
+        <tr><td>Empno:</td><td><input name="empno" ></td></tr>
+        <tr><td>Ename:</td><td><input name="ename" ></td></tr>
+        <tr><td>Job:</td><td><input name="job" ></td></tr>
+        <tr><td>MGR:</td><td><input name="mgr" ></td></tr>
+        <tr><td>Hiredate:</td><td><input type="text" name="date" id="datepicker"></td></tr>
+        <tr><td>Sal:</td><td><input name="sal" value="500"></td></tr>
+        <tr><td>Comm:</td><td><input name="comm" value="0"></td></tr>
+        <tr><td>Deptno:</td><td><input name="deptno" ></td></tr>
+      </table>
+      <%--<p>Empno:....<input name="empno" ><br></p>--%>
+      <%--<p>Ename:....<input name="ename"  ><br></p>--%>
+      <%--<p>Job:......<input name="job" ><br></p>--%>
+      <%--<p>MGR:......<input name="mgr" ><br></p>--%>
+      <%--<p>Hiredate:.<input type="text" name="date" id="datepicker"><br></p>--%>
+      <%--<p>Sal:......<input name="sal" value="500"><br></p>--%>
+      <%--<p>Comm:.....<input name="comm" value="0"><br></p>--%>
+      <%--<p>Deptno:...<input name="deptno" ><br></p>--%>
       <input type="hidden" name="action" value="insEmp" >
       <button type="submit" name="addEmp" >ADD</button>
       <%--<button type="submit" name="addEmp" onclick="return MyFunction()">ADD</button>--%>

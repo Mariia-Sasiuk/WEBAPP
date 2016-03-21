@@ -11,8 +11,8 @@ import java.util.Collection;
  */
 public class EmployeeDataOperations {
 
-    private static final String QUERY_SELECT_EMP = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0)  FROM  emp order by ";
-    private static final String QUERY_SELECT_ONE_EMP = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0)  FROM  emp WHERE empno = ?";
+    private static final String QUERY_SELECT_EMP = "SELECT empno, ename, job,nvl(mgr,0) mgr,hiredate, nvl(sal,0) sal, nvl(comm,0) comm, nvl(deptno,0) deptno  FROM  emp order by ";
+    private static final String QUERY_SELECT_ONE_EMP = "SELECT empno, ename, job,nvl(mgr,0) mgr,hiredate, nvl(sal,0) sal, nvl(comm,0) comm, nvl(deptno,0) deptno  FROM  emp WHERE empno = ?";
     private static final String QUERY_INSERT_EMP = "INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String QUERY_DELETE_EMP = "DELETE FROM emp WHERE empno = ?";
     private static final String QUERY_UPDATE_EMP = "UPDATE emp SET ename = ?, " +
@@ -23,7 +23,7 @@ public class EmployeeDataOperations {
                                                         "comm = ?, " +
                                                         "deptno = ? " +
                                                         "WHERE empno = ?";
-    private static final String QUERY_SELECT_BOSS = "SELECT empno, ename, job,nvl(mgr,0),hiredate, nvl(sal,0), nvl(comm,0), nvl(deptno,0) \n" +
+    private static final String QUERY_SELECT_BOSS = "SELECT empno, ename, job,nvl(mgr,0) mgr,hiredate, nvl(sal,0) sal, nvl(comm,0) comm, nvl(deptno,0) deptno \n" +
                                                     "      FROM emp \n" +
                                                     "      CONNECT BY PRIOR mgr=empno\n" +
                                                     "      START WITH empno= ?";

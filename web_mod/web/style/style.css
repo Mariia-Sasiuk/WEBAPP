@@ -88,3 +88,5 @@ ul.dropdown li.dropdown-top:hover .dropdown-inside {
 
 #vismoreEmp,#vismoreDept{
 	visibility:hidden;}
+
+#tbl{border: none}
